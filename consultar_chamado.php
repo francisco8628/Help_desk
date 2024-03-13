@@ -1,12 +1,14 @@
-<? require_once "validador_acesso.php"; ?>
+<? require_once "validador_acesso.php";
+  print_r($_SESSION);
+?>
 <?php
   // Chamados
   $chamados = array();
   // Abrir o arquivo.hd
   $arquivo = fopen('arquivo.hd', 'r'); // r = é o parametro para leitura
-  
+
   // Enquanto houver registros (linhas) a serem recuperados
-  while(!feof($arquivo)) { // testa pelo fim de um arquivo 
+  while(!feof($arquivo)) { // testa pelo fim de um arquivo
     // Linha
     $registro = fgets($arquivo);
     $chamados[] = $registro;
@@ -56,20 +58,30 @@
             Consulta de chamado
           </div>
 
-          <div class="card-body">            
+          <div class="card-body">
             <? foreach($chamados as $chamado) { ?>
               <?php
                 // Separa os dados do chamado em um array
-                $chamado_dados = explode('#', $chamado);
+                $chamado_dados = explode('#', $chamado);            
+
+                // Se o perfil for usuário não for Administrador
+                if($_SESSION['perfil_id'] != 1) {
+
+                  // Verificar se o chamado foi criado pelo usuário
+                  if($_SESSION['id'] != $chamado_dados[0]) {
+                    continue;
+                  }
+                }
+
                 if(count($chamado_dados) < 3) {
                   continue;
                 }
               ?>
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title"><?= $chamado_dados[0] ?></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><?= $chamado_dados[1] ?></h6>
-                  <p class="card-text"><?= $chamado_dados[2] ?></p>
+                  <h5 class="card-title"><?= $chamado_dados[1] ?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?= $chamado_dados[2] ?></h6>
+                  <p class="card-text"><?= $chamado_dados[3] ?></p>
                 </div>
               </div>
             <? } ?>

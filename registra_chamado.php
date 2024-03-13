@@ -1,12 +1,12 @@
 <?php
 
-
+session_start();
 
 $titulo = str_replace('#', '-', $_POST['titulo']); // substitui o # por - para não dar problema na hora de salvar no arquivo.
 $categoria = str_replace('#', '-', $_POST['categoria']);
 $descricao = str_replace('#', '-', $_POST['descricao']);
 
-$texto = $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL; // PHP_EOL é uma constante que pega o final da linha do sistema operacional.
+$texto = $_SESSION['id'] . '#' . $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL; // PHP_EOL é uma constante que pega o final da linha do sistema operacional.
 
 // abre o arquivo se não existir ele cria.
  $arquivo =  fopen('arquivo.hd', 'a'); // precisa de dois parametros, o nome do arquivo e o modo de abertura.

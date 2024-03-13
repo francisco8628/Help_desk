@@ -1,4 +1,4 @@
-<? require_once "validador_acesso.php"; ?>
+<? require_once "validador_acesso.php";?>
 
 <html>
 
@@ -42,12 +42,14 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-6 d-flex justify-content-center">
+              <div class="col-6 d-flex flex-column align-items-center">
+                <span>Abrir chamado</span>
                 <a href="abrir_chamado.php">
                   <img src="formulario_abrir_chamado.png" width="70" height="70">
                 </a>
               </div>
-              <div class="col-6 d-flex justify-content-center">
+              <div class="col-6 d-flex flex-column align-items-center">
+                <span>Consultar chamado</span>
                 <a href="consultar_chamado.php">
                   <img src="formulario_consultar_chamado.png" width="70" height="70">
                 </a>

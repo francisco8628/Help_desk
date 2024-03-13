@@ -22,6 +22,7 @@ foreach ($usaurios_app as $usuario) {
 if($usuario_autenticado){
     echo 'Usuário autenticado';
     $_SESSION['autenticado'] = 'SIM';
+    header('Location: home.php');
 } else {   
     // redireciona para a página de login com um parametro de erro.   
     header('Location: index.php?login=erro');

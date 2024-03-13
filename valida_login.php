@@ -12,29 +12,7 @@ $usaurios_app = array(
     array('email' => 'teste@teste.com.br', 'senha' => '78910'),
 );
 
-// teste de autenticação
-
-
-// // pega os dados do formulário usando o método GET
-// print_r($_GET);
-
-// echo 'Email: ' . $_GET['email'];
-// echo '<br/>';
-// echo 'Senha: ' . $_GET['senha'];
-
-// pega os dados do formulário usando o método POST
-
-// print_r($_POST);
-// echo '<br/>';
-// echo 'Email: ' . $_POST['email'];
-// echo '<br/>';
-// echo 'Senha: ' . $_POST['senha'];
-
-foreach ($usaurios_app as $usuario) {
-    // echo 'Usuairo app: ' . $usuario['email'] . '/' . $usuario['senha'];
-    // echo '<br/>';
-    // echo 'Usuairo form: ' . $_POST['email'] . '/' . $_POST['senha'];
-    // echo '<hr>';    
+foreach ($usaurios_app as $usuario) {   
     if ($usuario['email'] == $_POST['email'] && $usuario['senha'] == $_POST['senha']) {
         $usuario_autenticado = true;        
         $usuario_autenticado = true;        
